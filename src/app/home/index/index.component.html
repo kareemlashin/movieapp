@@ -1,0 +1,10 @@
+<div [dir]="dir">
+    <app-loading *ngIf="_loading|async"></app-loading>
+
+    <app-nav (_dir)="dir=$event" (_loading)="loading=$event" id="base-nav" #nav></app-nav>
+    <div [ngStyle]="{'margin-top':'52px'}">
+        <router-outlet></router-outlet>
+
+        <app-footer></app-footer>
+    </div>
+</div>

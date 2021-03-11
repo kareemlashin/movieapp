@@ -1,0 +1,29 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-nav shadow-base ">
+    <a class="navbar-brand" routerLink="/home/base">{{'logo'|translate}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse margin-nav" id="navbarNavDropdown">
+        <ul class="navbar-nav margin-nav">
+            <li class="nav-item active d-flex align-items-center">
+                <a class="nav-link py-1" routerLink="/home/base">{{'home'|translate}} <span
+                    class="sr-only py-1">(current)</span></a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link py-1" routerLink="/home/movies">{{'movieLinks'|translate}}</a>
+            </li>
+
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link py-1" routerLink="/home/listMovies"> {{'listMovie'|translate}}</a>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+                <a class="nav-link py-1" routerLink="/home/moviesNews">{{'movieNews'|translate}} </a>
+            </li>
+            <li>
+                <button class="rounded-pill px-5 mt-1 py-1" *ngIf="lang=='ar'?false:true" (click)="useLanguage('ar')">العربيه</button>
+                <button class="rounded-pill px-5 mt-1 py-1" *ngIf="lang=='en'?false:true" (click)="useLanguage('en')">English</button>
+
+            </li>
+        </ul>
+    </div>
+</nav>

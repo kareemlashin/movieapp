@@ -1,0 +1,37 @@
+<div class="cont-header mt-5">
+    <div class="overly h-100 d-flex align-items-center text-center">
+        <h2 class="text-center w-100">Movies</h2>
+    </div>
+</div>
+<div class="container px-0 mt-3 ">
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let movie of movies ">
+            <div class="position-relative" [ngStyle]="{'height': '280px',  'background-position': 'center',
+              'background-size':'cover'
+              ,'background-image':'url(https://image.tmdb.org/t/p/w500'+movie?.backdrop_path+')'}">
+
+                <div class="position-absolute p-3 d-flex flex-column align-items-start justify-content-end" style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,1)); top:0; bottom:0; left:0; right:0;">
+                    <a class="text-white p-1 px-2 mb-2" style="background-color: #272E69;">
+                        <small>{{movie.media_type}}</small>
+                    </a>
+                    <h3 class="h6"><a class="text-white" style="line-height:
+                        1.6;">{{movie?.original_title?movie.original_title:movie.original_name|slice:0:25}}</a>
+                    </h3>
+                    <div class="mt-2">
+                        <a class="pl-2 text-white mr-2" style="border-left: 3px solid #272E69;"><small>{{movie.name}}</small></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 text-center" *ngIf="expression">
+            <div class="spinner-border mx-auto text-center" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="text-center">
+        <button *ngIf="!expression" class="button py-2 rounded-pill px-5" (click)="load()">{{'loadMore'|translate}}</button>
+    </div>
+</div>

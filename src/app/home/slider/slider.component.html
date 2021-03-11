@@ -1,0 +1,43 @@
+<div class="container">
+    <ng-container *ngIf="(dirSelector|async)=='ltr'?true:false; else elseTemplate">
+        <owl-carousel-o [options]="customOptionsLtr">
+            <ng-template carouselSlide *ngFor="let movie of movies ">
+                <div class=" p-3">
+                    <div class="position-relative" [ngStyle]="{'height': '280px',  'background-position': 'center',
+              'background-size':'cover'
+              ,'background-image':'url(https://image.tmdb.org/t/p/w500'+movie?.backdrop_path+')'}">
+
+                        <a class="position-absolute text-white px-3 py-2" style="z-index: 10; top:20px; right:20px; background-color: #272E69;">
+                            <small>{{movie?.media_type}}</small>
+                        </a>
+                        <div class="position-absolute p-3 d-flex flex-column justify-content-end" style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,1)); top:0; bottom:0; left:0; right:0;">
+                            <h3 class="h6"><a class="text-white" style="line-height: 1.6;">{{movie?.original_title|slice:0:25}}</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+
+    </ng-container>
+    <ng-template #elseTemplate>
+        <owl-carousel-o [options]="customOptionsRtl">
+            <ng-template carouselSlide *ngFor="let movie of movies ">
+                <div class=" p-3">
+                    <div class="position-relative" [ngStyle]="{'height': '280px',  'background-position': 'center',
+              'background-size':'cover'
+              ,'background-image':'url(https://image.tmdb.org/t/p/w500'+movie?.backdrop_path+')'}">
+
+                        <a class="position-absolute text-white px-3 py-2" style="z-index: 10; top:20px; right:20px; background-color: #272E69;">
+                            <small>{{movie?.media_type}}</small>
+                        </a>
+                        <div class="position-absolute p-3 d-flex flex-column justify-content-end" style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,1)); top:0; bottom:0; left:0; right:0;">
+                            <h3 class="h6"><a class="text-white" style="line-height: 1.6;">{{movie?.original_title|slice:0:25}}</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
+    </ng-template>
+
+
+</div>

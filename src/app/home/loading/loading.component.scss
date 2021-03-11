@@ -1,0 +1,58 @@
+$main:#272E69;
+$prime:#F1F6FF;
+.loading {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    z-index: 999999999999999;
+    background: $prime;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.loader {
+    &__text {
+        margin: 5px auto;
+        color: $main;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    &__filmstrip {
+        position: relative;
+        width: 56px;
+        height: 70px;
+        background: $main;
+        z-index: -1;
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            height: 120%;
+            border-left: 5px dashed $prime;
+            animation: roll 20ms infinite;
+        }
+        &:before {
+            left: 5px;
+        }
+        &:after {
+            right: 5px;
+        }
+    }
+}
+
+@keyframes roll {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -15px;
+    }
+}
